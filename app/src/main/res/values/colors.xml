@@ -3,4 +3,28 @@
     <color name="colorPrimary">#0088CC</color>
     <color name="colorPrimaryDark">#0052CC</color>
     <color name="colorAccent">#FFFFFF</color>
+    <color name="colorAccentDark">#D1CDCD</color>
+    <color name="colorBlack">#000000</color>
+
+    <!-- Material DEFAULT colors -->
+    <color name="material_drawer_primary">#2196F3</color>
+    <color name="material_drawer_primary_dark">#1976D2</color>
+    <color name="material_drawer_primary_light">#BBDEFB</color>
+    <color name="material_drawer_accent">#FF4081</color>
+
+    <!-- OVERWRITE THESE COLORS FOR A LIGHT THEME -->
+    <!-- MaterialDrawer DEFAULT colors -->
+    <color name="material_drawer_background">#F9F9F9</color>
+    <!-- Material DEFAULT text / items colors -->
+    <color name="material_drawer_primary_text">@color/colorBlack</color>
+    <color name="material_drawer_primary_icon">#8A000000</color>
+    <color name="material_drawer_secondary_text">#8A000000</color>
+    <color name="material_drawer_hint_text">#42000000</color>
+    <color name="material_drawer_divider">#1F000000</color>
+    <!-- Material DEFAULT drawer colors -->
+    <color name="material_drawer_selected">#1F2196F3</color>
+    <color name="material_drawer_selected_legacy">#E8E8E8</color>
+    <color name="material_drawer_selected_text">#2196F3</color>
+    <color name="material_drawer_header_selection_text">@color/colorAccent</color>
+    <color name="material_drawer_header_selection_subtext">@color/colorAccentDark</color>
 </resources>
