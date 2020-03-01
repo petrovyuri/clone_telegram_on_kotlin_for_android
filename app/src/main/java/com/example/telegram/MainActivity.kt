@@ -6,6 +6,8 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import com.example.telegram.databinding.ActivityMainBinding
+import com.example.telegram.ui.ChatsFragment
+import com.example.telegram.ui.SettingsFragment
 import com.mikepenz.materialdrawer.AccountHeader
 import com.mikepenz.materialdrawer.AccountHeaderBuilder
 import com.mikepenz.materialdrawer.Drawer
@@ -36,6 +38,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun initFunc() {
         setSupportActionBar(mToolbar)
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.dataContainer, ChatsFragment()).commit()
         createHeader()
         createDrawer()
     }
@@ -48,11 +52,11 @@ class MainActivity : AppCompatActivity() {
             .withSelectedItem(-1)
             .withAccountHeader(mHeader)
             .addDrawerItems(
-               PrimaryDrawerItem().withIdentifier(100)
-                   .withIconTintingEnabled(true)
-                   .withName("Создать группу")
-                   .withSelectable(false)
-                   .withIcon(R.drawable.ic_menu_create_groups),
+                PrimaryDrawerItem().withIdentifier(100)
+                    .withIconTintingEnabled(true)
+                    .withName("Создать группу")
+                    .withSelectable(false)
+                    .withIcon(R.drawable.ic_menu_create_groups),
                 PrimaryDrawerItem().withIdentifier(101)
                     .withIconTintingEnabled(true)
                     .withName("Создать секретный чат")
@@ -99,13 +103,17 @@ class MainActivity : AppCompatActivity() {
                     .withName("Вопросы о телеграм")
                     .withSelectable(false)
                     .withIcon(R.drawable.ic_menu_help)
-            ).withOnDrawerItemClickListener(object :Drawer.OnDrawerItemClickListener{
+            ).withOnDrawerItemClickListener(object : Drawer.OnDrawerItemClickListener {
                 override fun onItemClick(
                     view: View?,
                     position: Int,
                     drawerItem: IDrawerItem<*>
                 ): Boolean {
-                   Toast.makeText(applicationContext,position.toString(),Toast.LENGTH_SHORT).show()
+                    when (position) {
+                       7 ->  supportFragmentManager.beginTransaction()
+                           .addToBackStack(null)
+                           .replace(R.id.dataContainer,SettingsFragment()).commit()
+                    }
                     return false
                 }
             }).build()
