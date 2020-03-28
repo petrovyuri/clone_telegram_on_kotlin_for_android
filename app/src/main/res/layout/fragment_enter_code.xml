@@ -43,6 +43,7 @@
 
     <EditText
         style="@style/editText"
+        android:layout_width="wrap_content"
         android:id="@+id/register_input_code"
         android:autofillHints=""
         android:maxLength="6"
