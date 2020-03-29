@@ -17,7 +17,7 @@ import com.google.firebase.auth.FirebaseAuth
 class MainActivity : AppCompatActivity() {
 
     private lateinit var mBinding: ActivityMainBinding
-    private lateinit var mAppDrawer: AppDrawer
+    lateinit var mAppDrawer: AppDrawer
     private lateinit var mToolbar: Toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,10 +33,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initFunc() {
-        if (AUTH.currentUser!=null){
+        if (AUTH.currentUser != null) {
             setSupportActionBar(mToolbar)
             mAppDrawer.create()
-            replaceFragment(ChatsFragment(),false)
+            replaceFragment(ChatsFragment(), false)
         } else {
             replaceActivity(RegisterActivity())
         }
@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initFields() {
         mToolbar = mBinding.mainToolbar
-        mAppDrawer = AppDrawer(this,mToolbar)
+        mAppDrawer = AppDrawer(this, mToolbar)
         initFirebase()
     }
 }
