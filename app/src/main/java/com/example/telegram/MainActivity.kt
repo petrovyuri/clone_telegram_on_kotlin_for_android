@@ -6,13 +6,14 @@ import android.os.Bundle
 import androidx.appcompat.widget.Toolbar
 import com.example.telegram.activities.RegisterActivity
 import com.example.telegram.databinding.ActivityMainBinding
+import com.example.telegram.models.User
 import com.example.telegram.ui.fragments.ChatsFragment
 import com.example.telegram.ui.objects.AppDrawer
-import com.example.telegram.utilits.AUTH
-import com.example.telegram.utilits.initFirebase
-import com.example.telegram.utilits.replaceActivity
-import com.example.telegram.utilits.replaceFragment
+import com.example.telegram.utilits.*
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
 
 class MainActivity : AppCompatActivity() {
 
@@ -47,5 +48,13 @@ class MainActivity : AppCompatActivity() {
         mToolbar = mBinding.mainToolbar
         mAppDrawer = AppDrawer(this, mToolbar)
         initFirebase()
+        initUser()
+    }
+
+    private fun initUser() {
+        REF_DATABASE_ROOT.child(NODE_USERS).child(UID)
+            .addListenerForSingleValueEvent(AppValueEventListener{
+                USER = it.getValue(User::class.java) ?:User()
+            })
     }
 }
