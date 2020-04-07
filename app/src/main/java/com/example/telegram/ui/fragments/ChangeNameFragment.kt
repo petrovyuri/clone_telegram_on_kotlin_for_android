@@ -9,7 +9,7 @@ import com.example.telegram.utilits.*
 import kotlinx.android.synthetic.main.fragment_change_name.*
 
 
-class ChangeNameFragment : Fragment(R.layout.fragment_change_name) {
+class ChangeNameFragment : BaseFragment(R.layout.fragment_change_name) {
 
     override fun onResume() {
         super.onResume()
