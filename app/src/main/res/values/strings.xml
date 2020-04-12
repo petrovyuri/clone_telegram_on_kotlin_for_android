@@ -26,4 +26,5 @@
     <string name="settings_toast_name_is_empty">Имя не может быть пустым</string>
     <string name="toast_data_update">Данные обновлены</string>
     <string name="settings_hint_input_username">username</string>
+    <string name="settings_input_bio">bio</string>
 </resources>
