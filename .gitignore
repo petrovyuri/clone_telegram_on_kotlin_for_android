@@ -6,7 +6,6 @@
 /captures
 .externalNativeBuild
 .cxx
-/settings.gradle
 /.idea
 google-services.json
 /app/build
