@@ -1,19 +1,20 @@
 package com.example.telegram
 
-import android.app.Activity
-import android.content.Context
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.inputmethod.InputMethodManager
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.example.telegram.activities.RegisterActivity
 import com.example.telegram.databinding.ActivityMainBinding
-import com.example.telegram.models.User
 import com.example.telegram.ui.fragments.ChatsFragment
 import com.example.telegram.ui.objects.AppDrawer
 import com.example.telegram.utilits.*
-import com.theartofdev.edmodo.cropper.CropImage
+
+
+/*
+* Курс по созданию мессенджера для Android
+* Автор Петров Юрий
+*/
+/* Главная активность*/
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,20 +23,21 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mToolbar: Toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        /* Функция запускается один раз, при создании активити */
         super.onCreate(savedInstanceState)
         mBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mBinding.root)
         APP_ACTIVITY = this
         initFirebase()
-        initUser{
+        initUser {
             initFields()
             initFunc()
         }
 
     }
 
-
     private fun initFunc() {
+        /* Функция инициализирует функциональность приложения */
         if (AUTH.currentUser != null) {
             setSupportActionBar(mToolbar)
             mAppDrawer.create()
@@ -45,13 +47,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
     private fun initFields() {
+        /* Функция инициализирует переменные */
         mToolbar = mBinding.mainToolbar
         mAppDrawer = AppDrawer(this, mToolbar)
-
     }
-
-
-
 }

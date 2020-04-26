@@ -5,6 +5,8 @@ import com.example.telegram.utilits.*
 import kotlinx.android.synthetic.main.fragment_change_username.*
 import java.util.*
 
+/* Фрагмент для изменения username пользователя */
+
 class ChangeUsernameFragment : BaseChangeFragment(R.layout.fragment_change_username) {
 
     lateinit var mNewUsername: String
@@ -32,7 +34,7 @@ class ChangeUsernameFragment : BaseChangeFragment(R.layout.fragment_change_usern
     }
 
     private fun changeUsername() {
-
+        /* Изменение username в базе данных */
         REF_DATABASE_ROOT.child(NODE_USERNAMES).child(mNewUsername).setValue(CURRENT_UID)
             .addOnCompleteListener {
                 if (it.isSuccessful){
@@ -42,6 +44,7 @@ class ChangeUsernameFragment : BaseChangeFragment(R.layout.fragment_change_usern
     }
 
     private fun updateCurrentUsername() {
+        /* Обновление username в базе данных у текущего пользователя */
         REF_DATABASE_ROOT.child(NODE_USERS).child(CURRENT_UID).child(CHILD_USERNAME)
             .setValue(mNewUsername)
             .addOnCompleteListener {
@@ -55,6 +58,7 @@ class ChangeUsernameFragment : BaseChangeFragment(R.layout.fragment_change_usern
     }
 
     private fun deleteOldUsername() {
+        /* Удаление старого username из базы данных  */
         REF_DATABASE_ROOT.child(NODE_USERNAMES).child(USER.username).removeValue()
             .addOnCompleteListener {
                 if (it.isSuccessful){

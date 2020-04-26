@@ -1,2 +1,2 @@
-rootProject.name='Telegram'
+rootProject.name='Clone_Telegram_on_Kotlin_for_Android'
 include ':app'

@@ -23,6 +23,8 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem
 import com.mikepenz.materialdrawer.util.AbstractDrawerImageLoader
 import com.mikepenz.materialdrawer.util.DrawerImageLoader
 
+/* Обьект реализующий боковое меню Navigation Drawer */
+
 class AppDrawer(val mainActivity: AppCompatActivity, val toolbar: Toolbar) {
 
     private lateinit var mDrawer: Drawer
@@ -31,6 +33,7 @@ class AppDrawer(val mainActivity: AppCompatActivity, val toolbar: Toolbar) {
     private lateinit var mCurrentProfile:ProfileDrawerItem
 
     fun create() {
+        /* Создания бокового меню */
         initLoader()
         createHeader()
         createDrawer()
@@ -38,6 +41,7 @@ class AppDrawer(val mainActivity: AppCompatActivity, val toolbar: Toolbar) {
     }
 
     fun disableDrawer() {
+        /* Отключение выдвигающего меню */
         mDrawer.actionBarDrawerToggle?.isDrawerIndicatorEnabled = false
         mainActivity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
@@ -47,6 +51,7 @@ class AppDrawer(val mainActivity: AppCompatActivity, val toolbar: Toolbar) {
     }
 
     fun enableDrawer() {
+        /* Включение выдвигающего меню */
         mainActivity.supportActionBar?.setDisplayHomeAsUpEnabled(false)
         mDrawer.actionBarDrawerToggle?.isDrawerIndicatorEnabled = true
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
@@ -56,6 +61,7 @@ class AppDrawer(val mainActivity: AppCompatActivity, val toolbar: Toolbar) {
     }
 
     private fun createDrawer() {
+        /* Создание дравера */
         mDrawer = DrawerBuilder()
             .withActivity(mainActivity)
             .withToolbar(toolbar)
@@ -125,6 +131,7 @@ class AppDrawer(val mainActivity: AppCompatActivity, val toolbar: Toolbar) {
     }
 
     private fun createHeader() {
+        /* Создание хедера*/
         mCurrentProfile = ProfileDrawerItem()
             .withName(USER.fullname)
             .withEmail(USER.phone)
@@ -139,6 +146,7 @@ class AppDrawer(val mainActivity: AppCompatActivity, val toolbar: Toolbar) {
     }
 
     fun updateHeader(){
+        /* Обновления хедера */
         mCurrentProfile
             .withName(USER.fullname)
             .withEmail(USER.phone)
@@ -149,6 +157,7 @@ class AppDrawer(val mainActivity: AppCompatActivity, val toolbar: Toolbar) {
     }
 
     private fun initLoader(){
+        /* Инициализация лоадера для загрузки картинок в хедер */
         DrawerImageLoader.init(object :AbstractDrawerImageLoader(){
             override fun set(imageView: ImageView, uri: Uri, placeholder: Drawable) {
                 imageView.downloadAndSetImage(uri.toString())

@@ -4,6 +4,7 @@ import com.example.telegram.R
 import com.example.telegram.utilits.*
 import kotlinx.android.synthetic.main.fragment_cnage_bio.*
 
+/* Фрагмент для изменения информации о пользователе */
 
 class ChangeBioFragment : BaseChangeFragment(R.layout.fragment_cnage_bio) {
 
