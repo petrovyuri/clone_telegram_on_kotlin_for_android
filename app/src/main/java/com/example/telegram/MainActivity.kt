@@ -10,6 +10,10 @@ import com.example.telegram.databinding.ActivityMainBinding
 import com.example.telegram.ui.fragments.ChatsFragment
 import com.example.telegram.ui.objects.AppDrawer
 import com.example.telegram.utilits.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 
 /*
@@ -32,7 +36,9 @@ class MainActivity : AppCompatActivity() {
         APP_ACTIVITY = this
         initFirebase()
         initUser {
-            initContacts()
+            CoroutineScope(Dispatchers.IO).launch {
+                initContacts()
+            }
             initFields()
             initFunc()
         }
@@ -41,7 +47,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun initContacts() {
         if (checkPermission(READ_CONTACTS)){
-            showToast("Чтение контактов")
+            val array = arrayOfNulls<Int>(900000)
+            array.forEach { println(it) }
         }
     }
 
