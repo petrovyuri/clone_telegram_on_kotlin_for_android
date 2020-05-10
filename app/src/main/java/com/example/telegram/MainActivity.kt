@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var mBinding: ActivityMainBinding
     lateinit var mAppDrawer: AppDrawer
-    private lateinit var mToolbar: Toolbar
+    lateinit var mToolbar: Toolbar
     private var test = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         /* Функция запускается один раз, при создании активити */
@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
     private fun initFields() {
         /* Функция инициализирует переменные */
         mToolbar = mBinding.mainToolbar
-        mAppDrawer = AppDrawer(this, mToolbar)
+        mAppDrawer = AppDrawer()
     }
 
     override fun onStart() {
