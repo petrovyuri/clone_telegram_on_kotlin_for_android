@@ -1,6 +1,6 @@
 package com.example.telegram.models
 
-/* Модель User*/
+/* Общая модель для всех сущностей приложения*/
 
 data class CommonModel(
     val id: String = "",

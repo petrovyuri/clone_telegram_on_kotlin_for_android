@@ -33,18 +33,22 @@ class ContactsFragment : BaseFragment(R.layout.fragment_contacts) {
         mRecyclerView = contacts_recycle_view
         mRefContacts = REF_DATABASE_ROOT.child(NODE_PHONES_CONTACTS).child(CURRENT_UID)
 
+        //Настройка для адаптера, где указываем какие данные и откуда получать
         val options = FirebaseRecyclerOptions.Builder<CommonModel>()
             .setQuery(mRefContacts, CommonModel::class.java)
             .build()
 
+        //Адаптер принимает данные, отображает в холдере
         mAdapter = object : FirebaseRecyclerAdapter<CommonModel, ContactsHolder>(options) {
 
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactsHolder {
+               //Запускается тогда когда адаптер получает доступ к ViewGroup
                 val view = LayoutInflater.from(parent.context)
                     .inflate(R.layout.contact_item, parent, false)
                 return ContactsHolder(view)
             }
 
+            // Заполняет holder
             override fun onBindViewHolder(
                 holder: ContactsHolder,
                 position: Int,
@@ -68,6 +72,7 @@ class ContactsFragment : BaseFragment(R.layout.fragment_contacts) {
 
     }
 
+    // Холдер для захвата ViewGroup
     class ContactsHolder(view: View) : RecyclerView.ViewHolder(view) {
         val name: TextView = view.contact_fullname
         val status: TextView = view.contact_status

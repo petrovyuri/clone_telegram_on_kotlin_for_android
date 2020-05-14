@@ -1,6 +1,6 @@
 package com.example.telegram.models
 
-/* Модель User*/
+/* Модель для User*/
 
 data class User(
     val id: String = "",

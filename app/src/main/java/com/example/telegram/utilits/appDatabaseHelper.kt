@@ -113,6 +113,7 @@ fun initContacts() {
 }
 
 fun updatePhonesToDatabase(arrayContacts: ArrayList<CommonModel>) {
+    // Функция добавляет номер телефона с id в базу данных.
     REF_DATABASE_ROOT.child(NODE_PHONES).addListenerForSingleValueEvent(AppValueEventListener{
         it.children.forEach {snapshot ->
             arrayContacts.forEach {contact ->
@@ -127,5 +128,6 @@ fun updatePhonesToDatabase(arrayContacts: ArrayList<CommonModel>) {
     })
 }
 
+// Функция преобразовывает полученые данные из Firebase в модель CommonModel
 fun DataSnapshot.getCommonModel(): CommonModel =
     this.getValue(CommonModel::class.java) ?: CommonModel()
