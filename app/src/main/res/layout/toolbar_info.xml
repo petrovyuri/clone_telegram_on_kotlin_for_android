@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorPrimary"
+    android:layout_height="?attr/actionBarSize">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="@dimen/toolbar_image_width"
+        android:id="@+id/toolbar_image"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/default_photo"
+        app:civ_circle_background_color="@color/accent"
+        android:layout_marginStart="@dimen/app_small_margin"
+        android:layout_height="@dimen/toolbar_image_height"/>
+
+    <TextView
+        android:id="@+id/contact_fullname"
+        style="@style/normalText"
+        tools:text="Yura Petrov"
+        android:textColor="@color/accent"
+        app:layout_constraintStart_toEndOf="@id/toolbar_image"
+        app:layout_constraintTop_toTopOf="@id/toolbar_image"/>
+
+    <TextView
+        android:id="@+id/contact_status"
+        style="@style/smallText"
+        tools:text="в сети"
+        android:textColor="@color/colorAccentDark"
+        app:layout_constraintStart_toEndOf="@id/toolbar_image"
+        app:layout_constraintTop_toBottomOf="@id/contact_fullname"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
