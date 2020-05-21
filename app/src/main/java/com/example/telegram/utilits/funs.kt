@@ -9,8 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.telegram.R
 import com.squareup.picasso.Picasso
-import de.hdodenhof.circleimageview.CircleImageView
-import kotlinx.android.synthetic.main.fragment_settings.*
 
 /* Файл для хранения утилитарных функции, доступных во всем приложении */
 
@@ -31,12 +29,12 @@ fun AppCompatActivity.replaceFragment(fragment: Fragment, addStack:Boolean = tru
     if (addStack){
         supportFragmentManager.beginTransaction()
             .addToBackStack(null)
-            .replace(R.id.dataContainer,
+            .replace(R.id.data_container,
                 fragment
             ).commit()
     } else {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.dataContainer,
+            .replace(R.id.data_container,
                 fragment
             ).commit()
     }
@@ -47,7 +45,7 @@ fun Fragment.replaceFragment(fragment: Fragment){
     /* Функция расширения для Fragment, позволяет устанавливать фрагменты */
     this.fragmentManager?.beginTransaction()
         ?.addToBackStack(null)
-        ?.replace(R.id.dataContainer,
+        ?.replace(R.id.data_container,
             fragment
         )?.commit()
 }

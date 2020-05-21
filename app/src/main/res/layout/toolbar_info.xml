@@ -14,7 +14,6 @@
         app:layout_constraintStart_toStartOf="parent"
         android:src="@drawable/default_photo"
         app:civ_circle_background_color="@color/accent"
-        android:layout_marginStart="@dimen/app_small_margin"
         android:layout_height="@dimen/toolbar_image_height"/>
 
     <TextView
