@@ -78,7 +78,7 @@ class ContactsFragment : BaseFragment(R.layout.fragment_contacts) {
 
     // Холдер для захвата ViewGroup
     class ContactsHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val name: TextView = view.contact_fullname
+        val name: TextView = view.contact_fullname1
         val status: TextView = view.contact_status
         val photo: CircleImageView = view.contact_photo
     }

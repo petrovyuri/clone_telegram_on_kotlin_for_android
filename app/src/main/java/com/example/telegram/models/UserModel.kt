@@ -2,7 +2,7 @@ package com.example.telegram.models
 
 /* Модель для User*/
 
-data class User(
+data class UserModel(
     val id: String = "",
     var username: String = "",
     var bio: String = "",

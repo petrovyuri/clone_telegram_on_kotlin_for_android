@@ -17,7 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
-        android:id="@+id/contact_fullname"
+        android:id="@+id/contact_fullname1"
        style="@style/normalText"
         tools:text="Yura Petrov"
         app:layout_constraintStart_toEndOf="@id/contact_photo"
@@ -28,6 +28,6 @@
         style="@style/smallText"
         tools:text="в сети"
         app:layout_constraintStart_toEndOf="@id/contact_photo"
-        app:layout_constraintTop_toBottomOf="@id/contact_fullname"/>
+        app:layout_constraintTop_toBottomOf="@id/contact_fullname1"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
