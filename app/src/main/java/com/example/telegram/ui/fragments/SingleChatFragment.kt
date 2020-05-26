@@ -10,12 +10,13 @@ import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.toolbar_info.view.*
 
 
-class SingleChatFragment(private val contact: CommonModel) : BaseFragment(R.layout.fragment_single_chat) {
+class SingleChatFragment(private val contact: CommonModel) :
+    BaseFragment(R.layout.fragment_single_chat) {
 
-    private lateinit var mListenerInfoToolbar:AppValueEventListener
-    private lateinit var mReceivingUser:UserModel
-    private lateinit var mToolbarInfo:View
-    private lateinit var mRefUser:DatabaseReference
+    private lateinit var mListenerInfoToolbar: AppValueEventListener
+    private lateinit var mReceivingUser: UserModel
+    private lateinit var mToolbarInfo: View
+    private lateinit var mRefUser: DatabaseReference
 
     override fun onResume() {
         super.onResume()
@@ -31,8 +32,11 @@ class SingleChatFragment(private val contact: CommonModel) : BaseFragment(R.layo
     }
 
     private fun initInfoToolbar() {
+        if (mReceivingUser.fullname.isEmpty()) {
+            mToolbarInfo.toolbar_chat_fullname.text = contact.fullname
+        } else mToolbarInfo.toolbar_chat_fullname.text = mReceivingUser.fullname
+
         mToolbarInfo.toolbar_chat_image.downloadAndSetImage(mReceivingUser.photoUrl)
-        mToolbarInfo.toolbar_chat_fullname.text = mReceivingUser.fullname
         mToolbarInfo.toolbar_chat_status.text = mReceivingUser.state
     }
 

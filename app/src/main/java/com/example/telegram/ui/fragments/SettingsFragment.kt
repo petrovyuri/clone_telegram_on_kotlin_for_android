@@ -54,6 +54,7 @@ class SettingsFragment : BaseFragment(R.layout.fragment_settings) {
         /* Слушатель выбора пунктов выпадающего меню */
         when (item.itemId) {
             R.id.settings_menu_exit -> {
+                AppStates.updateState(AppStates.OFFLINE)
                 AUTH.signOut()
                 APP_ACTIVITY.replaceActivity(RegisterActivity())
             }
