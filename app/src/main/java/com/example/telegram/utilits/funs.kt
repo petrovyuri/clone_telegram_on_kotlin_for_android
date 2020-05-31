@@ -11,6 +11,8 @@ import androidx.fragment.app.Fragment
 import com.example.telegram.R
 import com.example.telegram.models.CommonModel
 import com.squareup.picasso.Picasso
+import java.text.SimpleDateFormat
+import java.util.*
 
 /* Файл для хранения утилитарных функции, доступных во всем приложении */
 
@@ -95,4 +97,9 @@ fun initContacts() {
         cursor?.close()
         updatePhonesToDatabase(arrayContacts)
     }
+}
+ fun String.asTime(): String {
+    val time = Date(this.toLong())
+    val timeFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
+    return timeFormat.format(time)
 }
