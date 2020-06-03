@@ -1,16 +1,11 @@
-package com.example.telegram.ui.fragments
+package com.example.telegram.ui.fragments.register
 
 import androidx.fragment.app.Fragment
-import com.example.telegram.MainActivity
 
 import com.example.telegram.R
-import com.example.telegram.activities.RegisterActivity
-import com.example.telegram.utilits.AUTH
-import com.example.telegram.utilits.replaceActivity
-import com.example.telegram.utilits.replaceFragment
-import com.example.telegram.utilits.showToast
+import com.example.telegram.database.AUTH
+import com.example.telegram.utilits.*
 import com.google.firebase.FirebaseException
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
 import kotlinx.android.synthetic.main.fragment_enter_phone_number.*
@@ -34,7 +29,7 @@ class EnterPhoneNumberFragment : Fragment(R.layout.fragment_enter_phone_number) 
                 AUTH.signInWithCredential(credential).addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         showToast("Добро пожаловать")
-                        (activity as RegisterActivity).replaceActivity(MainActivity())
+                        restartActivity()
                     } else showToast(task.exception?.message.toString())
                 }
             }
@@ -46,7 +41,12 @@ class EnterPhoneNumberFragment : Fragment(R.layout.fragment_enter_phone_number) 
 
             override fun onCodeSent(id: String, token: PhoneAuthProvider.ForceResendingToken) {
                 /* Функция срабатывает если верификация впервые, и отправлена смс */
-                replaceFragment(EnterCodeFragment(mPhoneNumber, id))
+                replaceFragment(
+                    EnterCodeFragment(
+                        mPhoneNumber,
+                        id
+                    )
+                )
             }
         }
         register_btn_next.setOnClickListener { sendCode() }
@@ -69,7 +69,7 @@ class EnterPhoneNumberFragment : Fragment(R.layout.fragment_enter_phone_number) 
             mPhoneNumber,
             60,
             TimeUnit.SECONDS,
-            activity as RegisterActivity,
+            APP_ACTIVITY,
             mCallback
         )
     }

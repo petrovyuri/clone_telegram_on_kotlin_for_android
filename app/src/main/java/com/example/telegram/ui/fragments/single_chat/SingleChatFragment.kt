@@ -3,6 +3,7 @@ package com.example.telegram.ui.fragments.single_chat
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.example.telegram.R
+import com.example.telegram.database.*
 import com.example.telegram.models.CommonModel
 import com.example.telegram.models.UserModel
 import com.example.telegram.ui.fragments.BaseFragment
@@ -35,7 +36,9 @@ class SingleChatFragment(private val contact: CommonModel) :
     private fun initRecycleView() {
         mRecyclerView = chat_recycle_view
         mAdapter = SingleChatAdapter()
-        mRefMessages = REF_DATABASE_ROOT.child(NODE_MESSAGES)
+        mRefMessages = REF_DATABASE_ROOT.child(
+            NODE_MESSAGES
+        )
             .child(CURRENT_UID)
             .child(contact.id)
         mRecyclerView.adapter = mAdapter
@@ -55,13 +58,19 @@ class SingleChatFragment(private val contact: CommonModel) :
             initInfoToolbar()
         }
 
-        mRefUser = REF_DATABASE_ROOT.child(NODE_USERS).child(contact.id)
+        mRefUser = REF_DATABASE_ROOT.child(
+            NODE_USERS
+        ).child(contact.id)
         mRefUser.addValueEventListener(mListenerInfoToolbar)
         chat_btn_send_message.setOnClickListener {
             val message = chat_input_message.text.toString()
             if (message.isEmpty()) {
                 showToast("ВВедите сообщение")
-            } else sendMessage(message, contact.id, TYPE_TEXT) {
+            } else sendMessage(
+                message,
+                contact.id,
+                TYPE_TEXT
+            ) {
                 chat_input_message.setText("")
             }
         }
