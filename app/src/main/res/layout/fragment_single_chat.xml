@@ -6,17 +6,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.fragments.single_chat.SingleChatFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/chat_recycle_view"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/chat_swipe_refresh"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@color/colorBlueWish"
-        tools:listitem="@layout/message_item"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toTopOf="@id/chat_input_message"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"/>
+        android:layout_width="wrap_content"
+        android:layout_height="0dp">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/chat_recycle_view"
+            android:background="@color/colorBlueWish"
+            tools:listitem="@layout/message_item"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"/>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
 
 
     <EditText
