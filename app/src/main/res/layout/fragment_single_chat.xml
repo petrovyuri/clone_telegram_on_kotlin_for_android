@@ -57,6 +57,17 @@
         android:padding="@dimen/appPadding"
         android:src="@drawable/ic_attach"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/chat_btn_voice"
+        app:layout_constraintTop_toTopOf="@+id/chat_input_message" />
+
+    <ImageView
+        android:id="@+id/chat_btn_voice"
+        android:layout_width="50dp"
+        android:layout_height="0dp"
+        android:background="@color/colorAccent"
+        android:padding="@dimen/appPadding"
+        android:src="@drawable/ic_voice"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/chat_input_message" />
 
