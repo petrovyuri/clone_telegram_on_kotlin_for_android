@@ -1,4 +1,4 @@
-package com.example.telegram.ui.fragments
+package com.example.telegram.ui.screens
 
 import com.example.telegram.R
 import com.example.telegram.database.*

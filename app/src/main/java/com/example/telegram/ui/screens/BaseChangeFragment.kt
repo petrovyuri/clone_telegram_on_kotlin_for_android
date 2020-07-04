@@ -1,4 +1,4 @@
-package com.example.telegram.ui.fragments
+package com.example.telegram.ui.screens
 
 import android.view.Menu
 import android.view.MenuInflater
@@ -6,7 +6,6 @@ import android.view.MenuItem
 import androidx.fragment.app.Fragment
 import com.example.telegram.MainActivity
 import com.example.telegram.R
-import com.example.telegram.utilits.APP_ACTIVITY
 import com.example.telegram.utilits.hideKeyboard
 
 /* Базовый фрагмент, от него наследуются фрагменты где происходит изменение данных о пользователе. */

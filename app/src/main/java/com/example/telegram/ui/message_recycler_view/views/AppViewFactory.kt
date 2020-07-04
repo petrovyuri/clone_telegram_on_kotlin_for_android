@@ -1,4 +1,4 @@
-package com.example.telegram.ui.fragments.message_recycler_view.views
+package com.example.telegram.ui.message_recycler_view.views
 
 import com.example.telegram.models.CommonModel
 import com.example.telegram.utilits.TYPE_MESSAGE_IMAGE
