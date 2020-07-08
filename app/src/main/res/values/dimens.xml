@@ -27,5 +27,7 @@
     <dimen name="chat_voice_height">50dp</dimen>
     <dimen name="btn_voice_width">50dp</dimen>
     <dimen name="btn_voice_height">50dp</dimen>
+    <dimen name="bottom_sheet_height">70dp</dimen>
+    <dimen name="btn_bottom_sheet_width">50dp</dimen>
 
 </resources>
