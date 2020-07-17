@@ -7,7 +7,7 @@
     android:layout_margin="@dimen/app_small_margin">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/bloc_received_voice_message"
+        android:id="@+id/bloc_received_file_message"
         android:layout_width="@dimen/chat_common_width"
         android:layout_height="@dimen/chat_common_height"
         android:background="@drawable/bg_receiving_message"
@@ -16,26 +16,29 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/chat_received_btn_play"
+            android:layout_margin="@dimen/app_small_margin"
+            android:id="@+id/chat_received_btn_download"
             android:layout_width="@dimen/chat_btn_width"
             android:layout_height="@dimen/chat_btn_height"
-            android:src="@drawable/ic_play_blue"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/chat_received_btn_stop"
-            android:layout_width="@dimen/chat_btn_width"
-            android:layout_height="@dimen/chat_btn_height"
-            android:src="@drawable/ic_stop_blue"
-            android:visibility="gone"
+            android:src="@drawable/ic_file_blue"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/chat_received_voice_message_time"
+            android:maxLines="2"
+            android:id="@+id/chat_received_filename"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/app_small_margin"
+            app:layout_constraintBottom_toTopOf="@id/chat_received_file_message_time"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/chat_received_btn_download" />
+
+
+        <TextView
+            android:id="@+id/chat_received_file_message_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/app_small_margin"
@@ -44,10 +47,21 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             tools:text="21:45" />
+
+        <ProgressBar
+            android:visibility="invisible"
+            android:id="@+id/chat_received_progress_bar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="@dimen/chat_btn_width"
+            android:layout_height="@dimen/chat_btn_height"
+            android:layout_margin="@dimen/app_small_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/bloc_user_voice_message"
+        android:id="@+id/bloc_user_file_message"
         android:layout_width="@dimen/chat_common_width"
         android:layout_height="@dimen/chat_common_height"
         android:background="@drawable/bg_user_message"
@@ -55,27 +69,40 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/chat_user_btn_play"
+        <ProgressBar
+            android:visibility="invisible"
+            android:id="@+id/chat_user_progress_bar"
+            style="?android:attr/progressBarStyle"
             android:layout_width="@dimen/chat_btn_width"
             android:layout_height="@dimen/chat_btn_height"
-            android:src="@drawable/ic_play_green"
+            android:layout_margin="@dimen/app_small_margin"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/chat_user_btn_stop"
+            android:id="@+id/chat_user_btn_download"
             android:layout_width="@dimen/chat_btn_width"
             android:layout_height="@dimen/chat_btn_height"
-            android:src="@drawable/ic_stop_green"
-            android:visibility="gone"
+            android:layout_margin="@dimen/app_small_margin"
+            android:src="@drawable/ic_file_green"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/chat_user_voice_message_time"
+            android:id="@+id/chat_user_filename"
+            android:layout_width="0dp"
+            android:maxLines="2"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/app_small_margin"
+            app:layout_constraintBottom_toTopOf="@id/chat_user_file_message_time"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/chat_user_btn_download" />
+
+        <TextView
+            android:id="@+id/chat_user_file_message_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/app_small_margin"
