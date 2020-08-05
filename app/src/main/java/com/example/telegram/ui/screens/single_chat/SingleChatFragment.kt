@@ -1,7 +1,6 @@
 package com.example.telegram.ui.screens.single_chat
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.view.*
@@ -16,7 +15,7 @@ import com.example.telegram.models.CommonModel
 import com.example.telegram.models.UserModel
 import com.example.telegram.ui.screens.BaseFragment
 import com.example.telegram.ui.message_recycler_view.views.AppViewFactory
-import com.example.telegram.ui.screens.settings.ChangeNameFragment
+import com.example.telegram.ui.screens.main_list.MainListFragment
 import com.example.telegram.utilits.*
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.firebase.database.DatabaseReference
@@ -275,8 +274,17 @@ class SingleChatFragment(private val contact: CommonModel) :
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         /* Слушатель выбора пунктов выпадающего меню */
         when (item.itemId) {
-
+            R.id.menu_clear_chat -> clearChat(contact.id){
+                showToast("Чат очищен")
+                replaceFragment(MainListFragment())
+            }
+            R.id.menu_delete_chat -> deleteChat(contact.id){
+                showToast("Чат удален")
+                replaceFragment(MainListFragment())
+            }
         }
         return true
     }
+
+
 }
