@@ -29,4 +29,5 @@
     <string name="settings_input_bio">bio</string>
     <string name="clear_chat">Очистить чат</string>
     <string name="delete_chat">Удалить чат</string>
+    <string name="create_group">Создать группу</string>
 </resources>
