@@ -5,11 +5,13 @@ import com.example.telegram.R
 import com.example.telegram.models.CommonModel
 import com.example.telegram.ui.screens.base.BaseFragment
 import com.example.telegram.utilits.APP_ACTIVITY
+import com.example.telegram.utilits.getPlurals
 import com.example.telegram.utilits.hideKeyboard
 import com.example.telegram.utilits.showToast
 import kotlinx.android.synthetic.main.fragment_create_group.*
 
-class CreateGroupFragment(private var listContacts:List<CommonModel>):BaseFragment(R.layout.fragment_create_group) {
+class CreateGroupFragment(private var listContacts:List<CommonModel>)
+    :BaseFragment(R.layout.fragment_create_group) {
 
     private lateinit var mRecyclerView: RecyclerView
     private lateinit var mAdapter: AddContactsAdapter
@@ -17,11 +19,11 @@ class CreateGroupFragment(private var listContacts:List<CommonModel>):BaseFragme
     override fun onResume() {
         super.onResume()
         APP_ACTIVITY.title = getString(R.string.create_group)
-        APP_ACTIVITY.mAppDrawer.enableDrawer()
         hideKeyboard()
         initRecyclerView()
         create_group_btn_complete.setOnClickListener { showToast("Click") }
         create_group_input_name.requestFocus()
+        create_group_counts.text = getPlurals(listContacts.size)
     }
 
     private fun initRecyclerView() {
